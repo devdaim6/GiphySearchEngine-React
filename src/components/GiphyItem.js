@@ -9,8 +9,8 @@ function GiphyItem(props) {
   }
   return (
     <>
-      <div className=" card" style={{ width: "7.5rem", height: "5rem" }}>
-        <img src={images} style={imgSize} className="card-img " alt="Loading..." />
+      <div className="card" style={{ width: "7.5rem", height: "5rem" }}>
+        <img src={images} style={imgSize} className="card-img" alt="Loading..." />
       </div>
     </>
   )

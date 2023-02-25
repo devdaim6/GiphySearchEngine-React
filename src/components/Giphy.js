@@ -5,18 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Giphy(props) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("gifs");
   const [value, setValue] = useState([])
 
   useEffect(() => {
-    console.log(search)
-    const url = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=SDEsWMHoj4DO7LFMxWFHlVJVkElcDm8h"
+    const url = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=V4VRHnVAmeLU0lrJdVIZAoeMsDiGCyss&offset=100"
     const fetchData = async () => {
       try {
         const response = await fetch(url);
         const res = await response.json()
         setValue(res.data)
-        // console.log(parsedRes);
+        let count=res.data.length;
+        console.log(count)
       } catch (error) {
         console.log("error", error);
       }
@@ -28,11 +28,10 @@ function Giphy(props) {
   return (
     <>
       <main>
-
-        <div className="container " >
-          <h1 style={{ textAlign: "center" }}  ><FontAwesomeIcon icon={faSearch} /></h1>
+        <div className="container" >
+          <h1 style={{ textAlign: "center" }}  ><FontAwesomeIcon style={{color:"white"}}icon={faSearch} /></h1>
           <form role="search" className=' form-floating'>
-            <input className="form-control" id="search" placeholder="Search" value={search} onChange={e => setSearch(e.target.value)} aria-label="Search" />
+            <input className="form-control" id="search" placeholder="Search" value={search} autoComplete="off" onChange={e => setSearch(e.target.value)}   />
             <label htmlFor="search" className='floatingInput' >Search For Gifs</label>
           </form>
           <div className="row my-5">
@@ -50,15 +49,15 @@ function Giphy(props) {
           </div>
         </div>
       </main>
-      <hr classname="my-1000" />
-      <footer className='text-center' >
+      <hr classname="my-1000" style={{color:"white"}} />
+      <footer className='text-center text-white' >
         <span >
           {" "}
           &copy;{" "}
           <span>
             {" "}
             Copyright 2023 |
-            <a style={{ textDecoration: "none", textDecorationColor: "#59c9fa" }} href="https://devdaim.me" >
+            <a style={{ textDecoration: "none", color: " #56e1ca " }} href="https://devdaim.me" >
               {" "}
               DevDaim
             </a>{" "}
