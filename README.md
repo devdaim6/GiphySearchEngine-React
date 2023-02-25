@@ -1,5 +1,5 @@
 # Live Preview
-https://lookatgiphy.netlify.app
+https://giphy-here.netlify.app
 
 
 ## Available Scripts
