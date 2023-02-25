@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Giphy(props) {
-  const [search, setSearch] = useState(" ");
-  const [value, setValue] = useState("");
+  const [search, setSearch] = useState("");
+  const [value, setValue] = useState([])
 
   useEffect(() => {
     console.log(search)
@@ -36,8 +36,8 @@ function Giphy(props) {
             <label htmlFor="search" className='floatingInput' >Search For Gifs</label>
           </form>
           <div className="row my-5">
-            {value.map(element => {
-              return (
+            {value.map((element) => {
+              return(
                 <div className="col-lg-2 col-md-3 col-sm-4 col-4" key={element.images.fixed_height.url}>
                   <GiphyItem
                     images={element.images.fixed_height.url}
@@ -66,6 +66,7 @@ function Giphy(props) {
         </span>
       </footer>
     </>
+    
   )
 }
 
