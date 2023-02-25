@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Giphy(props) {
   const [search, setSearch] = useState(" ");
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     console.log(search)
