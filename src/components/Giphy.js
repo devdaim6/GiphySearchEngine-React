@@ -3,20 +3,23 @@ import { React, useState, useEffect } from 'react'
 import GiphyItem from './GiphyItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Loading from './Spinner';
 
 function Giphy(props) {
   const [search, setSearch] = useState("gifs");
   const [value, setValue] = useState([])
-
+  const [loader,setLoader]=useState(true);
   useEffect(() => {
     const url = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=V4VRHnVAmeLU0lrJdVIZAoeMsDiGCyss&offset=100"
     const fetchData = async () => {
       try {
+        setLoader(true);
         const response = await fetch(url);
         const res = await response.json()
         setValue(res.data)
         let count=res.data.length;
         console.log(count)
+        setLoader(false)
       } catch (error) {
         console.log("error", error);
       }
@@ -35,6 +38,7 @@ function Giphy(props) {
             <label htmlFor="search" className='floatingInput' >Search For Gifs</label>
           </form>
           <div className="row my-5">
+            {loader && <Loading/>}
             {value.map((element) => {
               return(
                 <div className="col-lg-2 col-md-3 col-sm-4 col-4" key={element.images.fixed_height.url}>
