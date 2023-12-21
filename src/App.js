@@ -1,7 +1,7 @@
-import React from "react"
-import './App.css';
-import Giphy from './components/Giphy';
-import Navbar from './components/Navbar';
+import React from "react";
+import "./App.css";
+import Giphy from "./components/Giphy";
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
